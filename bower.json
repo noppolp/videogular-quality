@@ -1,5 +1,6 @@
 {
 	"name": "videogular-quality",
+	"version": "0.1.0",
 	"homepage": "https://github.com/noppolp/videogular-quality",
 	"description": "Videogular plugin for video quality selection",
 	"license": "MIT",
