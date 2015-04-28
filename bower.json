@@ -10,7 +10,9 @@
 
 	"main": "vg-quality.js",
 	"dependencies": {
-		"videogular-controls": "latest"
+		"videogular-controls": "latest",
+		"videogular-dash": "git@github.com:noppolp/bower-videogular-dash.git#master",
+		"dash": "git@github.com:Dash-Industry-Forum/dash.js.git#master"
 	},
 	"ignore": [
 		"**/.*",
