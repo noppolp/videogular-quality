@@ -112,3 +112,7 @@ You need to set the initial or default source to `.mpd` source or the last item 
 ```js
 currentQualitySource = this.qualitySources[this.qualitySources.length - 1];
 ```
+
+Demo
+------------
+http://softever.co.th/dash/example/
