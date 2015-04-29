@@ -64,3 +64,51 @@ Styling
 -----------------
 
 You can override the style by looking the default style in `vg-quality.css`
+
+MPEG-DASH Support
+-----------------
+
+For MPEG-DASH you need to add `.mpd` file as the last source of quality sources list and add `dashIndex` property to each traditional source. `dashIndex` is a bitrate index that MPEG-DASH manifest use to auto scale the quality of video, so you must assign the `sources` property if you need to fallback to traditional progressive streaming when web browser is not support to MPEG-DASH. See example below
+```js
+qualitySources: [
+          {
+            name: '720p',
+            sources: [
+              {src: $sce.trustAsResourceUrl("https://dl.dropboxusercontent.com/u/8274898/videogular/videogular720.mp4"), type: "video/mp4"}
+            ],
+            dashIndex: 3
+          },
+          {
+            name: '480p',
+            sources: [
+              {src: $sce.trustAsResourceUrl("https://dl.dropboxusercontent.com/u/8274898/videogular/videogular480.mp4"), type: "video/mp4"}
+            ],
+            dashIndex: 2
+          },
+          {
+            name: '360p',
+            sources: [
+              {src: $sce.trustAsResourceUrl("https://dl.dropboxusercontent.com/u/8274898/videogular/videogular360.mp4"), type: "video/mp4"}
+            ],
+            dashIndex: 1
+          },
+          {
+            name: '240p',
+            sources: [
+              {src: $sce.trustAsResourceUrl("https://dl.dropboxusercontent.com/u/8274898/videogular/videogular240.mp4"), type: "video/mp4"}
+            ],
+            dashIndex: 0
+          },
+          {
+            name: 'Auto',
+            sources: [
+              {src: "https://dl.dropboxusercontent.com/u/8274898/videogular/dash/videogular.mpd"}
+            ]
+          }
+        ]
+```
+
+You need to set the initial or default source to `.mpd` source or the last item in the quality list.
+```js
+currentQualitySource = this.qualitySources[this.qualitySources.length - 1];
+```
