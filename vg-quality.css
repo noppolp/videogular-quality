@@ -13,6 +13,10 @@ videogular vg-quality div {
   display: block;
 }
 
+videogular vg-quality div .vg-auto-quality {
+  font-size: 9px;
+}
+
 videogular vg-quality vg-quality-selector ul {
   width: 50px;
   bottom: 50px;

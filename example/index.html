@@ -14,8 +14,7 @@
 
   <div ng-controller="HomeCtrl as controller" class="videogular-container">
     <videogular vg-theme="controller.config.theme.url">
-      <vg-media vg-src="controller.currentQualitySource.sources"
-                vg-tracks="controller.config.tracks">
+      <vg-media vg-src="controller.currentQualitySource.sources" vg-dash>
       </vg-media>
 
       <vg-controls vg-autohide="controller.config.plugins.controls.autoHide" vg-autohide-time="controller.config.plugins.controls.autoHideTime">
@@ -37,10 +36,12 @@
     </videogular>
 </div>
 
+	<script type='text/javascript' src='../bower_components/dash/dist/dash.all.js'></script>
   <script type='text/javascript' src='../bower_components/angular/angular.js'></script>
   <script type='text/javascript' src='../bower_components/angular-sanitize/angular-sanitize.js'></script>
   <script type='text/javascript' src='../bower_components/videogular/videogular.js'></script>
   <script type='text/javascript' src='../bower_components/videogular-controls/vg-controls.js'></script>
+	<script type='text/javascript' src='../bower_components/videogular-dash/vg-dash.js'></script>
 
   <script type='text/javascript' src='../vg-quality.js'></script>
 
