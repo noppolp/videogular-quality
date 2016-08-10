@@ -57,7 +57,7 @@ angular.module('th.co.softever.videogular.plugins.quality', [])
     }]
     )
     .directive("vgQualitySelector",
-    ['VG_STATES', function (VG_STATES) {
+    ['VG_STATES', '$rootScope', function (VG_STATES, $rootScope) {
       return {
         restrict: "E",
         require: "^videogular",
@@ -111,6 +111,7 @@ angular.module('th.co.softever.videogular.plugins.quality', [])
               API.setPlayback(scope.playback);
             };
             scope.changeQuality = function(quality) {
+              $rootScope.$emit('VIDEO_QUALITY_CHANGED', quality);
               API.dashPlayer.getVideoModel().getElement().addEventListener("loadedmetadata", scope.dashLoaded.bind(scope));
               scope.currentQuality = quality;
               scope.currentTime = API.currentTime;
@@ -129,6 +130,7 @@ angular.module('th.co.softever.videogular.plugins.quality', [])
             };
           }else {
             scope.changeQuality = function(quality) {
+              $rootScope.$emit('VIDEO_QUALITY_CHANGED', quality);
               scope.currentQuality = quality;
               scope.qualityVisibility = 'hidden';
               scope.currentTime = API.currentTime;
